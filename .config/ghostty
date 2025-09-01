@@ -1,0 +1,7 @@
+window-inherit-font-size = false
+theme = catppuccin-mocha.conf
+font-family = "Noto Sans Mono"
+font-style = "Semibold"
+font-size = "11"
+shell-integration-features = sudo
+background-opacity = "0.98"
