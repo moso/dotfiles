@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export BROWSER="firefox"
+export BROWSER="waterfox"
 export EDITOR="nano"
 
 # Command auto-correction.
@@ -35,14 +35,14 @@ COLOR_GREEN="{${COLOR_GREEN:-green}}"
 # Plugins
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(bun git nvm zsh-autosuggestions)
+plugins=(bun git nvm)
 
-if [ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
- source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-if [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 ZSH_HIGHLIGHT_STYLES[default]="none"
@@ -91,3 +91,9 @@ source $ZSH/oh-my-zsh.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Fix blurry icons on KDE Plasma
+export QT_SCALE_FACTOR_FOUNDING_POLICY=Round
+
+# Run fastfetch as welcome message
+fastfetch
