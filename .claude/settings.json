@@ -1,14 +1,21 @@
 {
     "$schema": "https://json.schemastore.org/claude-code-settings.json",
     "env": {
+        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
         "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
         "DISABLE_ERROR_REPORTING": "1",
+        "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
         "DISABLE_TELEMETRY": "1"
     },
     "forceLoginMethod": "claudeai",
-    "includeCoAuthoredBy": false,
+    // "includeCoAuthoredBy": false,
+    "attribution": {
+        "commit": "",
+        "pr": ""
+    },
     "learnMode": false,
-    "model": "claude-opus-4-1-20250805",
+    "model": "claude-sonnet-4-5-20250929",
     "permissions": {
         "deny": [
             "Bash(git commit)",
@@ -17,8 +24,20 @@
             "Bash(git push)",
             "Read(./.env)",
             "Read(./env.*)",
+            "Read(./secrets/**)",
+            "Read(./config/credentials.json)",
             "Read(./build)",
             "Read(./dist)"
         ]
+    },
+    "respectGitignore": true,
+    "sandbox": {
+        "enabled": true,
+        "autoAllowBashIfSandboxed": true,
+        "excludedCommands": ["docker"],
+        "network": {
+            "allowUnixSockets": ["/var/run/docker.sock"],
+            "allowLocalBinding": true
+        }
     }
 }
