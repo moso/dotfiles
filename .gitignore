@@ -1,11 +1,61 @@
+# Essentials
+node_modules/
+.cache/
+.env
+
+# Apple
 .DS_Store
-.vite-ssg-dist
-.vite-ssg-temp
-*.local
-dist
-dist-ssr
-node_modules
-.idea/
+
+# vite-ssg
+.vite-ssg-dist/
+.vite-ssg-temp/
+
+# Node
 *.log
+
+# Build stuff
+dist/
+dist-ssr/
+public/assets/fonts
+temp/
 components.d.ts
 auto-imports.d.ts
+
+# Other IDEs
+*.local
+.idea/
+
+# TypeScript
+typings/
+src/typegen.d.ts
+
+# VSCode
+.vscode/
+
+# Astro
+.astro/
+.content-collections
+
+# PHP
+/.phpunit.cache
+/.phpunit.result.cache
+/storage/*.key
+/storage/assets
+/storage/dropfolder
+/vendor
+Homestead.json
+Homestead.yaml
+auth.json
+
+# AI/LLM
+.claude/
+.cursor/
+.github/copilot-instuctions.md
+.mcp.json
+CLAUDE.md
+
+# Others
+.eslint-config-inspector/
+coverage/
+sponsors.*
+drafts/
