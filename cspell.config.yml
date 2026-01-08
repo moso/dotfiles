@@ -1,0 +1,73 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+
+language: en-US
+
+dictionaryDefinitions:
+  - name: personal-dictionary
+    path: ./.personal-dictionary.txt
+    addWords: true
+
+allowCompoundWords: true
+caseSensitive: false
+useGitignore: true
+
+dictionaries:
+  - en_US
+  - bash
+  - companies
+  - cryptocurrencies
+  - css
+  - en-slang
+  - filetypes
+  - fonts
+  - fullstack
+  - git
+  - html
+  - html-symbol-entities
+  - markdown
+  - misc
+  - node
+  - npm
+  - php
+  - softwareTerms
+  - typescript
+  - vue
+  - personal-dictionary
+
+ignorePaths:
+  - .astro
+  - .git
+  - .gitattributes
+  - .gitignore
+  - .npmrc
+  - .personal-dictionary.txt
+  - .prettierrc
+  - .vscode
+  - auto-imports.d.ts
+  - bun.lock
+  - CHANGELOG.md
+  - cspell.config.yml
+  - dist
+  - node_modules
+  - package.json
+  - pnpm-lock.yaml
+  - public
+  - src/assets
+  - src/vite-env.d.ts
+
+ignoreRegExpList:
+  - /\b[a-f0-9]{6}\b/ui # ignore hex color codes
+  - /\b[a-z0-9]{32,}\b/ui # ignore long string of hex characters
+  - /`[^`]*`/u # ignore things in `...`
+  - /```[\w\W]*?```/u # ignore things in ```...```
+
+overrides:
+  - filename: "**/*.yml"
+    ignoreRegExpList:
+      - /^\s*(?:[a-z0-9]|-|_|\"|')+:/ui # ignore keys
+      - /@[a-z0-9-]+\/[a-z0-9-]+/u # scoped packages
+
+  - filename: ".github/(actions|workflows)/*.yml"
+    ignoreRegExpList:
+      - /\b(?:[A-Za-z0-9\-_])+\/(?:[A-Za-z0-9\-_])+@v\d+(?:\.\d+){0,2}\b/ui # ignore action
