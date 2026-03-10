@@ -1,5 +1,8 @@
+# CLAUDE.md
+
 Insert the instructions below into a file named `CLAUDE.md` in the root of your project.
 
+```md
 ## Workflow Orchestration
 
 ### 1. Plan Node Default
@@ -50,3 +53,7 @@ Insert the instructions below into a file named `CLAUDE.md` in the root of your 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs
+
+## Project Context
+See `@PROJECT.md` for full project documentation.
+```
