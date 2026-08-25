@@ -3,6 +3,19 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export BROWSER="waterfox"
 export EDITOR="nano"
 
+# OS detection
+OS_FAMILY="$( . /etc/os-release 2>/dev/null && printf '%s %s' "${ID-}" "${ID_LIKE-}" )"
+isOS() { case " $OS_FAMILY " in (*" $1 "*) return 0 ;; esac; return 1; }
+
+# ZSH plugin dir
+if isOS arch; then
+  ZSH_PLUGIN_DIR=/usr/share/zsh/plugins
+elif isOS debian; then
+  ZSH_PLUGIN_DIR=/usr/share
+else
+  ZSH_PLUGIN_DIR=
+fi
+
 # Command auto-correction.
 ENABLE_CORRECTION="true"
 
@@ -37,15 +50,13 @@ COLOR_GREEN="{${COLOR_GREEN:-green}}"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(bun git nvm)
 
-if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
- source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+for _plugin in zsh-autosuggestions zsh-syntax-highligting; do
+  [[ -n $ZSH_PLUGIN_DIR && -r $ZSH_PLUGIN_DIR/$_plugin/$_plugin.zsh ]] \
+    && source $ZSH_PLUGIN_DIR/$_plugin/$_plugin.zsh
+done
+unset _plugin
 
-if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-ZSH_HIGHLIGHT_STYLES[default]="none"
+(( ${+ZSH_HIGHLIGHT_STYLES} )) && ZSH_HIGHLIGHT_STYLES[default]=none
 
 # nvm plugin settings
 zstyle ':omz:plugins:nvm' silent-autoload yes
@@ -96,4 +107,4 @@ export NVM_DIR="$HOME/.nvm"
 export QT_SCALE_FACTOR_FOUNDING_POLICY=Round
 
 # Run fastfetch as welcome message
-fastfetch
+command -v fastfetch >/dev/null && fastfetch
