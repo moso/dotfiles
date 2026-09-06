@@ -30,7 +30,6 @@
   },
   "outputStyle": "Concise",
   "preferredNotifChannel": "auto",
-  "respectGitignore": true,
   "permissions": {
     "allow": [
       "Bash(bun:*)",
