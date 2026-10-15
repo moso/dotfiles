@@ -50,7 +50,7 @@ COLOR_GREEN="{${COLOR_GREEN:-green}}"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(bun git nvm)
 
-for _plugin in zsh-autosuggestions zsh-syntax-highligting; do
+for _plugin in zsh-autosuggestions zsh-syntax-highlighting; do
   [[ -n $ZSH_PLUGIN_DIR && -r $ZSH_PLUGIN_DIR/$_plugin/$_plugin.zsh ]] \
     && source $ZSH_PLUGIN_DIR/$_plugin/$_plugin.zsh
 done
